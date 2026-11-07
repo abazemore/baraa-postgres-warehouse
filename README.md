@@ -1,8 +1,10 @@
 
 # Data Warehouse and Analytics Project
+This is a project from [Baraa's SQL course](https://www.youtube.com/watch?v=SSKVgrwhzus&list=PLNcg_FV9n7qZY_2eAtUzEUulNjTJREhQe), which I felt I should do since he asked and we have become such good friends over the course of thirty hours. I transposed it from SQL Server to Postgres so I was not just copying and pasting commands without thinking, and used Docker for the database rather than installing it on my machine.
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+Here is what he has to say about it:
+
+This project demonstrates a(t least having walked through a) comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
 
 ---
 ## 🏗️ Data Architecture
@@ -108,7 +110,7 @@ data-warehouse-project/
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
-## 🌟 About Me
+## 🌟 About the actual author
 
 Hi there! I'm **Baraa Khatib Salkini**, also known as **Data With Baraa**. I’m an IT professional and passionate YouTuber on a mission to share knowledge and make working with data enjoyable and engaging!
 
