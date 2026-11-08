@@ -4,7 +4,7 @@ This is a project from [Baraa's SQL course](https://www.youtube.com/watch?v=SSKV
 
 Here is what he has to say about it:
 
-This project demonstrates a(t least having walked through a) comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+This project demonstrates [at least having walked through] a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
 
 ---
 ## 🏗️ Data Architecture
