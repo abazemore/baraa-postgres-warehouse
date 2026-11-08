@@ -1,39 +1,28 @@
 /*
 =============================================================
-Create Database and Schemas
+Check Database and Create Schemas
 =============================================================
 Script Purpose:
-    This script creates a new database named 'DataWarehouse' after checking if it already exists. 
-    If the database exists, it is dropped and recreated. Additionally, the script sets up three schemas 
-    within the database: 'bronze', 'silver', and 'gold'.
-	
-WARNING:
-    Running this script will drop the entire 'DataWarehouse' database if it exists. 
-    All data in the database will be permanently deleted. Proceed with caution 
-    and ensure you have proper backups before running this script.
+    The original SQL Server script creates a new database named 'DataWarehouse' after checking if it already exists. 
+    If the database exists, it is dropped and recreated.
+    Postgres does not allow IF outside a function, and does not allow DROP DATABASE from inside a function.
+    USE does not exist and you need to create a new connection to use a database.
+    This procedure checks if the database exists, and if it is the current connection,
+    creates the schemas bronze, silver, and gold.
 */
 
-USE master;
-GO
-
--- Drop and recreate the 'DataWarehouse' database
-IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DataWarehouse')
+CREATE OR REPLACE PROCEDURE create_schemas()
+LANGUAGE plpgsql
+AS $$
 BEGIN
-    ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE DataWarehouse;
+   IF EXISTS (SELECT 1 FROM pg_database WHERE datname = 'datawarehouse') THEN
+      RAISE NOTICE 'Database already exists';
+   END IF;
+   IF current_database() = 'datawarehouse' THEN
+   	RAISE NOTICE 'Using datawarehouse';
+   	CREATE SCHEMA IF NOT EXISTS bronze;
+      CREATE SCHEMA IF NOT EXISTS silver;
+      CREATE SCHEMA IF NOT EXISTS gold;
+   END IF;
 END;
-GO
-
--- Create the 'DataWarehouse' database
-CREATE DATABASE DataWarehouse;
-GO
-
-USE DataWarehouse;
-GO
-
--- Create Schemas
-CREATE SCHEMA bronze;
-
-CREATE SCHEMA silver;
-
-CREATE SCHEMA gold;
+$$;
